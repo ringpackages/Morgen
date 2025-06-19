@@ -53,7 +53,10 @@ class LinguisticEngine {
         
         # Trim cache if needed
         if len(self.aTextCache) > self.nMaxCacheSize {
-            self.aTextCache = self.aTextCache[2:]
+            for i = 2 to len(self.aTextCache) {
+                self.aTextCache = self.aTextCache[i]
+            }
+           
         }
         
         return oMeaning
@@ -76,8 +79,8 @@ class LinguisticEngine {
         # Generate simple text based on symbol type
         if oSymbol.cType = "arabic_letter" {
             return oSymbol.oData
-        }
-        elseif oSymbol.cType = "triconsonantal_root" {
+        
+        elseif oSymbol.cType = "triconsonantal_root" 
             # For roots, combine the letters
             cText = ""
             if isObject(oSymbol.oData) and isList(oSymbol.oData) {
@@ -88,8 +91,8 @@ class LinguisticEngine {
                 }
             }
             return cText
-        }
-        elseif oSymbol.cType = "meaning" {
+        
+        elseif oSymbol.cType = "meaning" 
             # For meaning symbols, generate based on genome
             return self.generateTextFromGenome(oSymbol.aGenome)
         }
@@ -109,7 +112,7 @@ class LinguisticEngine {
             nChar = ascii(substr(cText, i, 1))
             if nChar % 2 = 0 {
                 add(aGenome, 2)
-            } else {
+            else
                 add(aGenome, 1)
             }
         }

@@ -46,23 +46,23 @@ func runTriconsonantalRootDemo {
     
     # Create a Morgen cognitive space
     see "1. Creating Morgen cognitive space..." + nl
-    oSpace = new oMorgenSpace(2)
+    oSpace = new MorgenSpace(2)
     
     # Create Arabic letters
     see "2. Creating Arabic letters..." + nl
     
     # ك (Kaf)
-    oKaf = new oMorgenSymbol("kaf", "arabic_letter", [1, 2, 1, 2], 0.7, 120, "ك")
+    oKaf = new MorgenSymbol("kaf", "arabic_letter", [1, 2, 1, 2], 0.7, 120, "ك")
     oKaf.bIsSeed = true
     oKaf.nEnergyLevel = 0.85
     
     # ت (Ta)
-    oTa = new oMorgenSymbol("ta", "arabic_letter", [2, 1, 1, 2], 0.82, 30, "ت")
+    oTa = new MorgenSymbol("ta", "arabic_letter", [2, 1, 1, 2], 0.82, 30, "ت")
     oTa.bIsSeed = true
     oTa.nEnergyLevel = 0.9
     
     # ب (Ba)
-    oBa = new oMorgenSymbol("ba", "arabic_letter", [2, 1, 2, 1], 0.85, 15, "ب")
+    oBa = new MorgenSymbol("ba", "arabic_letter", [2, 1, 2, 1], 0.85, 15, "ب")
     oBa.bIsSeed = true
     oBa.nEnergyLevel = 0.95
     
@@ -75,7 +75,7 @@ func runTriconsonantalRootDemo {
     
     # Create linguistic engine
     see "3. Creating linguistic engine..." + nl
-    oEngine = new oLinguisticEngine(oSpace)
+    oEngine = new LinguisticEngine(oSpace)
     
     # Create root ك-ت-ب (K-T-B, related to writing)
     see "4. Creating triconsonantal root ك-ت-ب (K-T-B)..." + nl
@@ -101,7 +101,7 @@ func runTriconsonantalRootDemo {
     see nl + "5. Creating derived words from root..." + nl
     
     # Create word "كتاب" (kitab - book)
-    oKitab = new oMorgenSymbol(
+    oKitab = new MorgenSymbol(
         "kitab",
         "meaning",
         [1, 2, 1, 2, 2, 1, 1, 2],
@@ -121,7 +121,7 @@ func runTriconsonantalRootDemo {
     see "   Added word: كتاب (kitab - book)" + nl
     
     # Create word "كاتب" (katib - writer)
-    oKatib = new oMorgenSymbol(
+    oKatib = new MorgenSymbol(
         "katib",
         "meaning",
         [1, 2, 1, 1, 2, 1, 2],
