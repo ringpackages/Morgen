@@ -11,6 +11,9 @@ QTextCursor_End = 11
 
 class MainWindowView from WindowsViewParent
 
+    // Morgen System Bridge
+    oMorgenBridge = null
+
     // Window object - must be defined first
     win = new qWidget() {
         // Initialize Morgen system bridge
@@ -454,5 +457,3 @@ class MainWindowView from WindowsViewParent
 
     func CloseAction()
         win.close()
-
-// End of MainWindowView class
