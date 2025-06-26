@@ -83,8 +83,8 @@ Morgen/
 1. **Install Ring Language**: Download from [Ring Language Official Site](https://ring-lang.github.io/)
 2. **Clone Repository**:
    ```bash
-   git clone https://github.com/morgen-ai/morgen-paradigm.git
-   cd morgen-paradigm
+   git clone[ https://github.com/azzeddine2017/Morgen.git
+   cd Morgen
    ```
 3. **Run Quick Start**:
    ```bash
