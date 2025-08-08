@@ -6,6 +6,48 @@
 
 load "../morgen/language/linguistic_engine.ring"
 
+
+
+
+    see "==================================================" + nl
+    see "MORGEN AI - LINGUISTIC ENGINE TESTS" + nl
+    see "==================================================" + nl
+    
+    # Create linguistic test environment
+    aTestEnv = createLinguisticTestSpace()
+    oSpace = aTestEnv[1]
+    oEngine = aTestEnv[2]
+    
+    # Test basic text processing
+    testBasicTextProcessing(oEngine)
+    
+    # Test text generation
+    testTextGeneration(oEngine)
+    
+    # Test meaning analysis
+    testMeaningAnalysis(oEngine)
+    
+    # Test linguistic evolution
+    testLinguisticEvolution(oEngine)
+    
+    # Test fractal text generation
+    testFractalTextGeneration(oEngine)
+    
+    # Test condensed symbol generation
+    testCondensedSymbolGeneration(oEngine)
+    
+    see nl + "=== Final Linguistic Engine State ===" + nl
+    see "Total symbols in space: " + len(oSpace.aSymbols) + nl
+    see "Word symbols created: " + len(oEngine.aWordSymbols) + nl
+    see "Root symbols created: " + len(oEngine.aRootSymbols) + nl
+    see "Character symbols: " + len(oEngine.aCharacterSymbols) + nl
+    see "Global resonance: " + oSpace.nGlobalResonance + nl
+    see "Epochs completed: " + oSpace.nEpoch + nl
+    
+    see nl + "==================================================" + nl
+    see "LINGUISTIC ENGINE TESTS COMPLETE" + nl
+    see "==================================================" + nl
+
 /*
 Function: createLinguisticTestSpace
 Description: Creates a test space for linguistic engine testing
@@ -13,8 +55,8 @@ Description: Creates a test space for linguistic engine testing
 func createLinguisticTestSpace {
     see "Creating linguistic test space..." + nl
     
-    oSpace = new oMorgenSpace(5)
-    oEngine = new oLinguisticEngine(oSpace)
+    oSpace = new MorgenSpace(5)
+    oEngine = new LinguisticEngine(oSpace)
     
     see "Linguistic test space created with " + len(oSpace.aSymbols) + " symbols" + nl
     
@@ -30,11 +72,11 @@ func testBasicTextProcessing oEngine {
     
     # Test simple Arabic words
     aTestTexts = [
-        "كتاب",      # Book
-        "بيت",       # House  
-        "ماء",       # Water
-        "كتاب بيت",  # Book house (two words)
-        "ماء كتاب بيت"  # Three words
+        "\u0643\u062a\u0627\u0628",      # كتاب
+        "\u0628\u064a\u062a",       # بيت  
+        "\u0645\u0627\u0621",       # ماء
+        "\u0643\u062a\u0627\u0628 \u0628\u064a\u062a",  # كتاب بيت
+        "\u0645\u0627\u0621 \u0643\u062a\u0627\u0628 \u0628\u064a\u062a"  # ماء كتاب بيت
     ]
     
     for cText in aTestTexts {
@@ -109,9 +151,9 @@ func testMeaningAnalysis oEngine {
     see nl + "=== Testing Meaning Analysis ===" + nl
     
     aTestTexts = [
-        "كتاب",
-        "كتاب ماء",
-        "بيت كتاب ماء"
+        "\u0643\u062a\u0627\u0628",
+        "\u0643\u062a\u0627\u0628 \u0645\u0627\u0621",
+        "\u0628\u064a\u062a \u0643\u062a\u0627\u0628 \u0645\u0627\u0621"
     ]
     
     for cText in aTestTexts {
@@ -145,11 +187,11 @@ func testLinguisticEvolution oEngine {
     
     # Create initial text meanings
     aInitialTexts = [
-        "كتاب",
-        "ماء", 
-        "بيت",
-        "كتاب ماء",
-        "بيت كتاب"
+        "\u0643\u062a\u0627\u0628",
+        "\u0645\u0627\u0621", 
+        "\u0628\u064a\u062a",
+        "\u0643\u062a\u0627\u0628 \u0645\u0627\u0621",
+        "\u0628\u064a\u062a \u0643\u062a\u0627\u0628"
     ]
     
     aMeaningSymbols = []
@@ -224,7 +266,7 @@ func testFractalTextGeneration oEngine {
     see nl + "=== Testing Fractal Text Generation ===" + nl
     
     # Create some deep meaning symbols first
-    oEngine.analyzeTextMeaning("كتاب ماء بيت")
+    oEngine.analyzeTextMeaning("\u0643\u062a\u0627\u0628 \u0645\u0627\u0621 \u0628\u064a\u062a")
     
     # Run a dream cycle to create deeper symbols
     oEngine.oMorgenSpace.enhancedDreamCycle()
@@ -259,10 +301,10 @@ func testCondensedSymbolGeneration oEngine {
     
     # Create multiple similar meanings to trigger condensation
     aSimilarTexts = [
-        "كتاب",
-        "كتاب ماء", 
-        "كتاب بيت",
-        "ماء كتاب"
+        "\u0643\u062a\u0627\u0628",
+        "\u0643\u062a\u0627\u0628 \u0645\u0627\u0621", 
+        "\u0643\u062a\u0627\u0628 \u0628\u064a\u062a",
+        "\u0645\u0627\u0621 \u0643\u062a\u0627\u0628"
     ]
     
     for cText in aSimilarTexts {
@@ -290,49 +332,4 @@ func testCondensedSymbolGeneration oEngine {
         cCondensedText = oEngine.generateTextFromSymbol(oCondensedSymbol, "arabic")
         see "  Generated: '" + cCondensedText + "'" + nl
     }
-}
-
-/*
-Function: main
-Description: Main test function for linguistic engine
-*/
-func main {
-    see "==================================================" + nl
-    see "MORGEN AI - LINGUISTIC ENGINE TESTS" + nl
-    see "==================================================" + nl
-    
-    # Create linguistic test environment
-    aTestEnv = createLinguisticTestSpace()
-    oSpace = aTestEnv[1]
-    oEngine = aTestEnv[2]
-    
-    # Test basic text processing
-    testBasicTextProcessing(oEngine)
-    
-    # Test text generation
-    testTextGeneration(oEngine)
-    
-    # Test meaning analysis
-    testMeaningAnalysis(oEngine)
-    
-    # Test linguistic evolution
-    testLinguisticEvolution(oEngine)
-    
-    # Test fractal text generation
-    testFractalTextGeneration(oEngine)
-    
-    # Test condensed symbol generation
-    testCondensedSymbolGeneration(oEngine)
-    
-    see nl + "=== Final Linguistic Engine State ===" + nl
-    see "Total symbols in space: " + len(oSpace.aSymbols) + nl
-    see "Word symbols created: " + len(oEngine.aWordSymbols) + nl
-    see "Root symbols created: " + len(oEngine.aRootSymbols) + nl
-    see "Character symbols: " + len(oEngine.aCharacterSymbols) + nl
-    see "Global resonance: " + oSpace.nGlobalResonance + nl
-    see "Epochs completed: " + oSpace.nEpoch + nl
-    
-    see nl + "==================================================" + nl
-    see "LINGUISTIC ENGINE TESTS COMPLETE" + nl
-    see "==================================================" + nl
 }

@@ -117,8 +117,7 @@ class LinguisticEngine {
         aCharSymbols = []
         
         # Simple character extraction (this could be enhanced for Arabic morphology)
-        for i = 1 to len(cWord) {
-            cChar = substr(cWord, i, 1)
+        for cChar in cWord {
             add(aCharacters, cChar)
             
             # Find corresponding character symbol

@@ -6,6 +6,31 @@
 
 load "../morgen/space.ring"
 
+
+ see "==================================================" + nl
+    see "MORGEN AI - ENHANCED DREAM CYCLE TESTS" + nl
+    see "==================================================" + nl
+    
+    # Create test space
+    oSpace = createTestSpace()
+    
+    # Test individual phases
+    testHallPhase(oSpace)
+    testLammPhase(oSpace)
+    testHulmPhase(oSpace)
+    
+    # Reset space for complete cycle test
+    oSpace = createTestSpace()
+    testCompleteDreamCycle(oSpace)
+    
+    # Reset space for multiple cycles test
+    oSpace = createTestSpace()
+    testMultipleDreamCycles(oSpace)
+    
+    see nl + "==================================================" + nl
+    see "ENHANCED DREAM CYCLE TESTS COMPLETE" + nl
+    see "==================================================" + nl
+
 /*
 Function: createTestSpace
 Description: Creates a test space with initial symbols
@@ -239,34 +264,3 @@ func testMultipleDreamCycles oSpace {
             ", Medium=" + nMediumEnergy + ", High=" + nHighEnergy + nl
     }
 }
-
-/*
-Function: main
-Description: Main test function
-*/
-func main {
-    see "==================================================" + nl
-    see "MORGEN AI - ENHANCED DREAM CYCLE TESTS" + nl
-    see "==================================================" + nl
-    
-    # Create test space
-    oSpace = createTestSpace()
-    
-    # Test individual phases
-    testHallPhase(oSpace)
-    testLammPhase(oSpace)
-    testHulmPhase(oSpace)
-    
-    # Reset space for complete cycle test
-    oSpace = createTestSpace()
-    testCompleteDreamCycle(oSpace)
-    
-    # Reset space for multiple cycles test
-    oSpace = createTestSpace()
-    testMultipleDreamCycles(oSpace)
-    
-    see nl + "==================================================" + nl
-    see "ENHANCED DREAM CYCLE TESTS COMPLETE" + nl
-    see "==================================================" + nl
-}
-

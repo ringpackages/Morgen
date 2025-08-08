@@ -6,6 +6,12 @@
 load "stdlibcore.ring"
 load "MorgenTriangleSpace.ring"
 
+// Run the demonstration
+demonstrateMorgenConcepts()
+// Run the tests
+testMorgenTriangleSpace()
+
+
 // Test function for Morgen Triangle Space
 func testMorgenTriangleSpace() {
     
@@ -13,7 +19,7 @@ func testMorgenTriangleSpace() {
     
     // Test 1: Create instance and basic functionality
     see "Test 1: Creating Morgen Triangle Space instance..." + nl
-    oTriSpace = new oMorgenTriangleSpace()
+    oTriSpace = new MorgenTriangleSpace()
     oTriSpace.setMorgenSymbol("مرجان_مثلث")
     oTriSpace.setMorgenScale(2.5)
     
@@ -36,7 +42,7 @@ func testMorgenTriangleSpace() {
     
     // Test 3: AAS Triangle calculation
     see nl + "Test 3: AAS Calculation - Right Triangle..." + nl
-    oTriSpace2 = new oMorgenTriangleSpace()
+    oTriSpace2 = new MorgenTriangleSpace()
     oTriSpace2.setMorgenSymbol("مرجان_قائم")
     bResult = oTriSpace2.calculateFromAnglesAndSide(45, 45, 100)
     
@@ -86,7 +92,7 @@ func testMorgenTriangleSpace() {
     
     // Test 8: Error handling
     see nl + "Test 8: Error Handling..." + nl
-    oTriSpace3 = new oMorgenTriangleSpace()
+    oTriSpace3 = new MorgenTriangleSpace()
     bResult = oTriSpace3.calculateFromSides(0, 10, 20)  // Invalid triangle
     
     if !bResult {
@@ -97,7 +103,7 @@ func testMorgenTriangleSpace() {
     
     // Test 9: Isosceles triangle for comparison
     see nl + "Test 9: Isosceles Triangle Analysis..." + nl
-    oTriSpace4 = new oMorgenTriangleSpace()
+    oTriSpace4 = new MorgenTriangleSpace()
     oTriSpace4.setMorgenSymbol("مرجان_متساوي")
     bResult = oTriSpace4.calculateFromSides(100, 100, 50)
     
@@ -110,7 +116,7 @@ func testMorgenTriangleSpace() {
     
     // Test 10: Scalene triangle
     see nl + "Test 10: Scalene Triangle Analysis..." + nl
-    oTriSpace5 = new oMorgenTriangleSpace()
+    oTriSpace5 = new MorgenTriangleSpace()
     oTriSpace5.setMorgenSymbol("مرجان_مختلف")
     bResult = oTriSpace5.calculateFromSides(80, 60, 100)
     
@@ -130,8 +136,7 @@ func testMorgenTriangleSpace() {
     see nl + "=== All Tests Completed ===" + nl + nl
 }
 
-// Run the tests
-testMorgenTriangleSpace()
+
 
 // Additional demonstration of Morgen concepts
 func demonstrateMorgenConcepts() {
@@ -139,7 +144,7 @@ func demonstrateMorgenConcepts() {
     see "=== Morgen Paradigm Geometric Concepts ===" + nl + nl
     
     // Create a triangle representing a dream cycle
-    oDreamTriangle = new oMorgenTriangleSpace()
+    oDreamTriangle = new MorgenTriangleSpace()
     oDreamTriangle.setMorgenSymbol("دورة_الحلم")
     oDreamTriangle.setMorgenScale(3.0)
     
@@ -168,5 +173,4 @@ func demonstrateMorgenConcepts() {
     see nl + "=== End of Morgen Demonstration ===" + nl
 }
 
-// Run the demonstration
-demonstrateMorgenConcepts()
+

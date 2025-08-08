@@ -34,15 +34,15 @@ func createAdvancedTestSpace {
     }
     
     # Add some complex symbols for testing
-    oComplex1 = new oMorgenSymbol("complex_alpha", "concept", [1, 2, 1, 2, 2, 1, 1, 2], 0.85, 45, null)
+    oComplex1 = new MorgenSymbol("complex_alpha", "concept", [1, 2, 1, 2, 2, 1, 1, 2], 0.85, 45, null)
     oComplex1.nEnergyLevel = 0.4
     oSpace.addSymbol(oComplex1)
     
-    oComplex2 = new oMorgenSymbol("complex_beta", "concept", [2, 1, 2, 1, 1, 2, 2, 1], 0.87, 135, null)
+    oComplex2 = new MorgenSymbol("complex_beta", "concept", [2, 1, 2, 1, 1, 2, 2, 1], 0.87, 135, null)
     oComplex2.nEnergyLevel = 0.3
     oSpace.addSymbol(oComplex2)
     
-    oComplex3 = new oMorgenSymbol("complex_gamma", "concept", [1, 1, 2, 2, 1, 1, 2, 2], 0.89, 225, null)
+    oComplex3 = new MorgenSymbol("complex_gamma", "concept", [1, 1, 2, 2, 1, 1, 2, 2], 0.89, 225, null)
     oComplex3.nEnergyLevel = 0.35
     oSpace.addSymbol(oComplex3)
     
@@ -58,7 +58,7 @@ func testEmergentTriangulation oSpace {
     see nl + "=== Testing Emergent Triangulation ===" + nl
     
     # Create a new symbol that should trigger triangulation
-    oNewSymbol = new oMorgenSymbol("triangulation_test", "test", [1, 2, 1, 2], 0.5, 90, null)
+    oNewSymbol = new MorgenSymbol("triangulation_test", "test", [1, 2, 1, 2], 0.5, 90, null)
     oNewSymbol.nEnergyLevel = 0.8
     
     see "Creating new symbol: " + oNewSymbol.cId + nl
@@ -139,7 +139,7 @@ func testMeaningCondensation oSpace {
         nRadius = 0.7 + (i * 0.05)  # Close positions
         nAngle = 30 + (i * 10)
         
-        oSimilar = new oMorgenSymbol(cSymbolId, "similar_concept", aGenome, nRadius, nAngle, null)
+        oSimilar = new MorgenSymbol(cSymbolId, "similar_concept", aGenome, nRadius, nAngle, null)
         oSimilar.nEnergyLevel = 0.6
         
         oSpace.addSymbol(oSimilar)

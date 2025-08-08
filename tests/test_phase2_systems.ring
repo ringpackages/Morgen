@@ -6,6 +6,45 @@
 
 load "../morgen/advanced_morgen_system.ring"
 
+
+
+    see "==================================================" + nl
+    see "MORGEN AI - PHASE 2 ADVANCED SYSTEMS TESTS" + nl
+    see "==================================================" + nl
+    
+    # Test individual components
+    oInsightEngine = testInsightEngine()
+    oAdaptiveLearning = testAdaptiveLearning(oInsightEngine)
+    oMemorySystem = testMemorySystem(oInsightEngine.oMorgenSpace)
+    
+    # Test integrated system
+    oAdvancedSystem = testAdvancedMorgenSystem()
+    
+    # Test system integration
+    testSystemIntegration(oAdvancedSystem)
+    
+    # Run performance benchmarks
+    nPerformanceScore = testPerformanceBenchmarks(oAdvancedSystem)
+    
+    see nl + "=== PHASE 2 SYSTEMS TEST SUMMARY ===" + nl
+    see "✓ Insight Engine: " + len(oInsightEngine.aInsightPatterns) + " patterns discovered" + nl
+    see "✓ Adaptive Learning: " + len(oAdaptiveLearning.aLearningGoals) + " goals managed" + nl
+    see "✓ Memory System: " + oMemorySystem.getMemoryStatistics() + " memories stored" + nl
+    see "✓ Advanced System: " + oAdvancedSystem.nSystemEpoch + " master cycles completed" + nl
+    see "✓ Performance Score: " + nPerformanceScore + " / 1.0" + nl
+    
+    if nPerformanceScore > 0.7 {
+        see "🎉 PHASE 2 SYSTEMS PERFORMING EXCELLENTLY!" + nl
+    elseif nPerformanceScore > 0.5 
+        see "✅ PHASE 2 SYSTEMS PERFORMING WELL" + nl
+    else 
+        see "⚠️ PHASE 2 SYSTEMS NEED OPTIMIZATION" + nl
+    }
+    
+    see nl + "==================================================" + nl
+    see "PHASE 2 ADVANCED SYSTEMS TESTS COMPLETE" + nl
+    see "==================================================" + nl
+
 /*
 Function: testInsightEngine
 Description: Tests the insight discovery engine
@@ -14,7 +53,7 @@ func testInsightEngine {
     see "=== Testing Insight Engine ===" + nl
     
     # Create test space with diverse symbols
-    oSpace = new oMorgenSpace(5)
+    oSpace = new MorgenSpace(5)
     
     # Add various symbol types
     for i = 1 to 15 {
@@ -26,7 +65,7 @@ func testInsightEngine {
         nRadius = 0.2 + (random(60) / 100.0)
         nAngle = random(360)
         
-        oSymbol = new oMorgenSymbol("test_" + i, "test_type", aGenome, nRadius, nAngle, null)
+        oSymbol = new MorgenSymbol("test_" + i, "test_type", aGenome, nRadius, nAngle, null)
         oSymbol.nResonance = 1.0 + (random(30) / 10.0)
         oSymbol.nEnergyLevel = 0.5 + (random(50) / 100.0)
         
@@ -40,7 +79,7 @@ func testInsightEngine {
     }
     
     # Test insight engine
-    oInsightEngine = new oInsightEngine(oSpace)
+    oInsightEngine = new InsightEngine(oSpace)
     oInsightEngine.discoverInsights()
     
     see "Insights discovered: " + len(oInsightEngine.aInsightPatterns) + nl
@@ -67,7 +106,7 @@ func testAdaptiveLearning oInsightEngine {
     see nl + "=== Testing Adaptive Learning System ===" + nl
     
     oSpace = oInsightEngine.oMorgenSpace
-    oAdaptiveLearning = new oAdaptiveLearning(oSpace, oInsightEngine)
+    oAdaptiveLearning = new AdaptiveLearning(oSpace, oInsightEngine)
     
     see "Initial learning goals:" + nl
     for oGoal in oAdaptiveLearning.aLearningGoals {
@@ -99,7 +138,7 @@ Description: Tests the memory system
 func testMemorySystem oSpace {
     see nl + "=== Testing Memory System ===" + nl
     
-    oMemorySystem = new oMemorySystem(oSpace)
+    oMemorySystem = new MemorySystem(oSpace)
     
     # Run several dream cycles to generate experiences
     for i = 1 to 3 {
@@ -136,7 +175,7 @@ func testAdvancedMorgenSystem {
     see nl + "=== Testing Advanced Morgen System ===" + nl
     
     # Initialize the complete system
-    oAdvancedSystem = new oAdvancedMorgenSystem(5)
+    oAdvancedSystem = new AdvancedMorgenSystem(5)
     
     # Test text processing
     see nl + "Testing text processing capabilities:" + nl
@@ -276,48 +315,5 @@ func testPerformanceBenchmarks oAdvancedSystem {
     see nl + "Overall system performance score: " + nOverallScore + " / 1.0" + nl
     
     return nOverallScore
-}
-
-/*
-Function: main
-Description: Main test function for Phase 2 systems
-*/
-func main {
-    see "==================================================" + nl
-    see "MORGEN AI - PHASE 2 ADVANCED SYSTEMS TESTS" + nl
-    see "==================================================" + nl
-    
-    # Test individual components
-    oInsightEngine = testInsightEngine()
-    oAdaptiveLearning = testAdaptiveLearning(oInsightEngine)
-    oMemorySystem = testMemorySystem(oInsightEngine.oMorgenSpace)
-    
-    # Test integrated system
-    oAdvancedSystem = testAdvancedMorgenSystem()
-    
-    # Test system integration
-    testSystemIntegration(oAdvancedSystem)
-    
-    # Run performance benchmarks
-    nPerformanceScore = testPerformanceBenchmarks(oAdvancedSystem)
-    
-    see nl + "=== PHASE 2 SYSTEMS TEST SUMMARY ===" + nl
-    see "✓ Insight Engine: " + len(oInsightEngine.aInsightPatterns) + " patterns discovered" + nl
-    see "✓ Adaptive Learning: " + len(oAdaptiveLearning.aLearningGoals) + " goals managed" + nl
-    see "✓ Memory System: " + oMemorySystem.getMemoryStatistics() + " memories stored" + nl
-    see "✓ Advanced System: " + oAdvancedSystem.nSystemEpoch + " master cycles completed" + nl
-    see "✓ Performance Score: " + nPerformanceScore + " / 1.0" + nl
-    
-    if nPerformanceScore > 0.7 {
-        see "🎉 PHASE 2 SYSTEMS PERFORMING EXCELLENTLY!" + nl
-    elseif nPerformanceScore > 0.5 
-        see "✅ PHASE 2 SYSTEMS PERFORMING WELL" + nl
-    else 
-        see "⚠️ PHASE 2 SYSTEMS NEED OPTIMIZATION" + nl
-    }
-    
-    see nl + "==================================================" + nl
-    see "PHASE 2 ADVANCED SYSTEMS TESTS COMPLETE" + nl
-    see "==================================================" + nl
 }
 

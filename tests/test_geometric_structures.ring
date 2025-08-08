@@ -6,6 +6,45 @@
 
 load "../morgen/space.ring"
 
+
+
+    see "==================================================" + nl
+    see "MORGEN AI - GEOMETRIC STRUCTURES TESTS" + nl
+    see "==================================================" + nl
+    
+    # Test basic geometry utilities
+    testBasicGeometryUtils()
+    
+    # Create geometric test space
+    oSpace = createGeometricTestSpace()
+    
+    # Test binding potential
+    testBindingPotential(oSpace)
+    
+    # Test best mating pairs
+    aBestPairs = testBestMatingPairs(oSpace)
+    
+    # Test triangulation
+    testTriangulation(oSpace)
+    
+    # Test galactic organization
+    testGalacticOrganization(oSpace)
+    
+    # Test higher-order complexes
+    testHigherOrderComplexes(oSpace)
+    
+    # Final state summary
+    see nl + "=== Final Geometric Space State ===" + nl
+    see "Total symbols: " + len(oSpace.aSymbols) + nl
+    see "Total triangulations: " + len(oSpace.aTriangulations) + nl
+    see "Total galaxies: " + len(oSpace.aGalaxies) + nl
+    see "Total complexes: " + len(oSpace.aComplexes) + nl
+    see "Global resonance: " + oSpace.nGlobalResonance + nl
+    
+    see nl + "==================================================" + nl
+    see "GEOMETRIC STRUCTURES TESTS COMPLETE" + nl
+    see "==================================================" + nl
+
 /*
 Function: createGeometricTestSpace
 Description: Creates a test space with symbols arranged in geometric patterns
@@ -283,47 +322,3 @@ func testHigherOrderComplexes oSpace {
     
     see "Total complexes in space: " + len(oSpace.aComplexes) + nl
 }
-
-/*
-Function: main
-Description: Main test function for geometric structures
-*/
-func main {
-    see "==================================================" + nl
-    see "MORGEN AI - GEOMETRIC STRUCTURES TESTS" + nl
-    see "==================================================" + nl
-    
-    # Test basic geometry utilities
-    testBasicGeometryUtils()
-    
-    # Create geometric test space
-    oSpace = createGeometricTestSpace()
-    
-    # Test binding potential
-    testBindingPotential(oSpace)
-    
-    # Test best mating pairs
-    aBestPairs = testBestMatingPairs(oSpace)
-    
-    # Test triangulation
-    testTriangulation(oSpace)
-    
-    # Test galactic organization
-    testGalacticOrganization(oSpace)
-    
-    # Test higher-order complexes
-    testHigherOrderComplexes(oSpace)
-    
-    # Final state summary
-    see nl + "=== Final Geometric Space State ===" + nl
-    see "Total symbols: " + len(oSpace.aSymbols) + nl
-    see "Total triangulations: " + len(oSpace.aTriangulations) + nl
-    see "Total galaxies: " + len(oSpace.aGalaxies) + nl
-    see "Total complexes: " + len(oSpace.aComplexes) + nl
-    see "Global resonance: " + oSpace.nGlobalResonance + nl
-    
-    see nl + "==================================================" + nl
-    see "GEOMETRIC STRUCTURES TESTS COMPLETE" + nl
-    see "==================================================" + nl
-}
-

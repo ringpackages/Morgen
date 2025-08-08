@@ -54,7 +54,13 @@ func runTestSuite cTestName, cTestFile {
     see "========================================" + nl
 
     try {
-        // load cTestFile
+        cCode = ""
+        cCatchError = ""
+        # Load the test file
+        if not fExists(cTestFile) {
+            see "Error: Test file '" + cTestFile + "' does not exist." + nl
+            return
+        }
         cCode = read(cTestFile)
         eval(cCode)
         see "✓ " + cTestName + " completed successfully" + nl

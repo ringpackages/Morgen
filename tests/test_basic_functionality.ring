@@ -6,6 +6,24 @@
 
 load "../morgen/space.ring"
 
+
+
+
+    see "==================================================" + nl
+    see "MORGEN AI - BASIC FUNCTIONALITY TESTS" + nl
+    see "==================================================" + nl
+    
+    # Run all tests
+    oTestSymbol = testBasicSymbolCreation()
+    oChildSymbol = testSymbolMating()
+    aSeeds = testSymbolDeconstruction()
+    testGeometryUtils()
+    
+    see nl + "==================================================" + nl
+    see "BASIC FUNCTIONALITY TESTS COMPLETE" + nl
+    see "==================================================" + nl
+
+
 /*
 Function: testBasicSymbolCreation
 Description: Tests basic symbol creation and properties
@@ -132,22 +150,3 @@ func testGeometryUtils {
     }
 }
 
-/*
-Function: main
-Description: Main test function
-*/
-func main {
-    see "==================================================" + nl
-    see "MORGEN AI - BASIC FUNCTIONALITY TESTS" + nl
-    see "==================================================" + nl
-    
-    # Run all tests
-    oTestSymbol = testBasicSymbolCreation()
-    oChildSymbol = testSymbolMating()
-    aSeeds = testSymbolDeconstruction()
-    testGeometryUtils()
-    
-    see nl + "==================================================" + nl
-    see "BASIC FUNCTIONALITY TESTS COMPLETE" + nl
-    see "==================================================" + nl
-}

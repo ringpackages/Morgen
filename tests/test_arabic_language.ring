@@ -7,6 +7,47 @@
 load "../morgen/space.ring"
 load "../morgen/language/char_definitions.ring"
 
+
+
+    see "==================================================" + nl
+    see "MORGEN AI - ARABIC LANGUAGE PROCESSING TESTS" + nl
+    see "==================================================" + nl
+    
+    # Test character creation
+    aCharSymbols = testArabicCharacterCreation()
+    
+    # Test root creation
+    aRoots = testTriconsonantalRoots(aCharSymbols)
+    
+    # Test character mating
+    testCharacterMating(aCharSymbols)
+    
+    # Test language integration in space
+    oSpace = testLanguageInSpace(aCharSymbols, aRoots)
+    
+    # Test character evolution
+    testCharacterEvolution(oSpace)
+    
+    see nl + "=== Final Language Space State ===" + nl
+    see "Total symbols in space: " + len(oSpace.aSymbols) + nl
+    see "Current epoch: " + oSpace.nEpoch + nl
+    see "Global resonance: " + oSpace.nGlobalResonance + nl
+    
+    # Display sample symbols
+    see nl + "Sample symbols in final state:" + nl
+    nSampleCount = min(5, len(oSpace.aSymbols))
+    for i = 1 to nSampleCount {
+        oSymbol = oSpace.aSymbols[i]
+        see "  " + oSymbol.cId + " (" + oSymbol.cType + ") - Energy: " + 
+            oSymbol.nEnergyLevel + ", Radius: " + oSymbol.nRadius + nl
+    }
+    
+    see nl + "==================================================" + nl
+    see "ARABIC LANGUAGE PROCESSING TESTS COMPLETE" + nl
+    see "==================================================" + nl
+
+
+
 /*
 Function: testArabicCharacterCreation
 Description: Tests creation of Arabic character symbols
@@ -243,48 +284,5 @@ func testCharacterEvolution oSpace {
         see "  Total: " + len(oSpace.aSymbols) + nl
         see "  Global resonance: " + oSpace.nGlobalResonance + nl
     }
-}
-
-/*
-Function: main
-Description: Main test function for Arabic language processing
-*/
-func main {
-    see "==================================================" + nl
-    see "MORGEN AI - ARABIC LANGUAGE PROCESSING TESTS" + nl
-    see "==================================================" + nl
-    
-    # Test character creation
-    aCharSymbols = testArabicCharacterCreation()
-    
-    # Test root creation
-    aRoots = testTriconsonantalRoots(aCharSymbols)
-    
-    # Test character mating
-    testCharacterMating(aCharSymbols)
-    
-    # Test language integration in space
-    oSpace = testLanguageInSpace(aCharSymbols, aRoots)
-    
-    # Test character evolution
-    testCharacterEvolution(oSpace)
-    
-    see nl + "=== Final Language Space State ===" + nl
-    see "Total symbols in space: " + len(oSpace.aSymbols) + nl
-    see "Current epoch: " + oSpace.nEpoch + nl
-    see "Global resonance: " + oSpace.nGlobalResonance + nl
-    
-    # Display sample symbols
-    see nl + "Sample symbols in final state:" + nl
-    nSampleCount = min(5, len(oSpace.aSymbols))
-    for i = 1 to nSampleCount {
-        oSymbol = oSpace.aSymbols[i]
-        see "  " + oSymbol.cId + " (" + oSymbol.cType + ") - Energy: " + 
-            oSymbol.nEnergyLevel + ", Radius: " + oSymbol.nRadius + nl
-    }
-    
-    see nl + "==================================================" + nl
-    see "ARABIC LANGUAGE PROCESSING TESTS COMPLETE" + nl
-    see "==================================================" + nl
 }
 
