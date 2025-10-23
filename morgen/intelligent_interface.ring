@@ -69,7 +69,7 @@ class IntelligentInterface {
             # معالجة الإدخال
             self.processUserInput(cUserInput)
             
-            see nl + "=" * 50 + nl
+            see nl + copy("=", 50) + nl
         }
         
         see "👋 شكراً لاستخدام مرجان! وداعاً." + nl
@@ -99,7 +99,7 @@ class IntelligentInterface {
     */
     func displayMainMenu {
         see "📋 القائمة الرئيسية - مرجان الذكي" + nl
-        see "-" * 35 + nl
+        see copy("-", 35) + nl
         see "1️⃣  توليد نص عربي" + nl
         see "2️⃣  توليد كود برمجي" + nl
         see "3️⃣  وضع التفاعل المختلط" + nl

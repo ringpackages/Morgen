@@ -222,16 +222,16 @@ class AdvancedKnowledgeStorage {
         
         if oTargetCluster != null {
             # إضافة للعنقود الموجود
-            add(oTargetCluster["symbols"], oSymbol)
-            oTargetCluster["centroid"] = self.updateClusterCentroid(oTargetCluster)
+            add(oTargetCluster[:symbols], oSymbol)
+            oTargetCluster[:centroid] = self.updateClusterCentroid(oTargetCluster)
         else
             # إنشاء عنقود جديد
             oNewCluster = [
-                "id" = "cluster_" + len(self.aSemanticClusters) + 1,
-                "type" = oSymbol.cType,
-                "symbols" = [oSymbol],
-                "centroid" = [oSymbol.nRadius, oSymbol.nAngle],
-                "creation_epoch" = self.oMorgenSpace.nEpoch
+                :id = "cluster_" + len(self.aSemanticClusters) + 1,
+                :type = oSymbol.cType,
+                :symbols = [oSymbol],
+                :centroid = [oSymbol.nRadius, oSymbol.nAngle],
+                :creation_epoch = self.oMorgenSpace.nEpoch
             ]
             add(self.aSemanticClusters, oNewCluster)
         }
@@ -537,7 +537,7 @@ class AdvancedKnowledgeStorage {
         nRadiusGrid = floor(oSymbol.nRadius * 10)  # 10 مستويات نصف قطر
         nAngleGrid = floor(oSymbol.nAngle / 36)    # 10 قطاعات زاوية (36 درجة لكل قطاع)
 
-        cGridKey = nRadiusGrid + "_" + nAngleGrid
+        cGridKey = "" + nRadiusGrid + "_" + nAngleGrid
 
         # البحث عن الشبكة الموجودة أو إنشاء جديدة
         oGridCell = null
@@ -550,15 +550,15 @@ class AdvancedKnowledgeStorage {
 
         if oGridCell = null {
             oGridCell = [
-                "key" = cGridKey,
-                "radius_grid" = nRadiusGrid,
-                "angle_grid" = nAngleGrid,
-                "symbols" = []
+                :key = cGridKey,
+                :radius_grid = nRadiusGrid,
+                :angle_grid = nAngleGrid,
+                :symbols = []
             ]
             add(self.aPolarCoordinateIndex, oGridCell)
         }
 
-        add(oGridCell["symbols"], oSymbol)
+        add(oGridCell[:symbols], oSymbol)
     }
 
     /*

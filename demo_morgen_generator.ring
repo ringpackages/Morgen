@@ -13,7 +13,7 @@ load "morgen/intelligent_interface.ring"
 func main {
     displayWelcome()
     
-    try {
+   // try {
         # إنشاء النظام
         see "🔄 جاري تهيئة نظام مرجان الذكي..." + nl
         oInterface = new IntelligentInterface()
@@ -24,26 +24,26 @@ func main {
         # عرض تفاعلي
         interactiveDemo(oInterface)
         
-    catch
+   /* catch
         see "❌ خطأ في تشغيل العرض: " + cCatchError + nl
-    }
+    }*/
 }
 
 func displayWelcome {
     see nl
     see "🌟 مرحباً بك في العرض التوضيحي لمولد مرجان الذكي!" + nl
-    see "=" * 55 + nl
+    see copy("=", 55)   + nl
     see "🎯 سنعرض لك قدرات النظام في:" + nl
     see "   • توليد النصوص العربية المتقدمة" + nl
     see "   • توليد الأكواد البرمجية الذكية" + nl
     see "   • نظام الذاكرة التكيفي" + nl
     see "   • الواجهة التفاعلية الذكية" + nl
-    see "=" * 55 + nl + nl
+    see copy("=", 55) + nl + nl
 }
 
 func demonstrateCapabilities oInterface {
     see "🎬 عرض قدرات النظام" + nl
-    see "-" * 20 + nl + nl
+    see copy("-", 20) + nl + nl
     
     # عرض توليد النصوص
     demonstrateTextGeneration(oInterface)
@@ -60,7 +60,7 @@ func demonstrateCapabilities oInterface {
 
 func demonstrateTextGeneration oInterface {
     see "📝 عرض توليد النصوص العربية" + nl
-    see "-" * 30 + nl
+    see copy("-", 30) + nl
     
     # مثال 1: نص سردي
     see "🎭 مثال 1: نص سردي عن التكنولوجيا" + nl
@@ -80,7 +80,7 @@ func demonstrateTextGeneration oInterface {
 
 func demonstrateCodeGeneration oInterface {
     see "💻 عرض توليد الأكواد البرمجية" + nl
-    see "-" * 35 + nl
+    see copy("-", 35) + nl
     
     # مثال 1: دالة Ring
     see "🔧 مثال 1: دالة Ring للحساب" + nl
@@ -100,7 +100,7 @@ func demonstrateCodeGeneration oInterface {
 
 func demonstrateKnowledgeSystem oInterface {
     see "🧠 عرض نظام المعرفة التكيفي" + nl
-    see "-" * 30 + nl
+    see copy("-", 30) + nl
     
     # تخزين معرفة متنوعة
     see "💾 تخزين معرفة متنوعة..." + nl
@@ -124,7 +124,7 @@ func demonstrateKnowledgeSystem oInterface {
 
 func demonstrateIntelligentDetection oInterface {
     see "🤖 عرض الذكاء التفاعلي" + nl
-    see "-" * 25 + nl
+    see copy("-", 25) + nl
     
     # اختبار اكتشاف أنواع الطلبات
     aTestRequests = [
@@ -139,7 +139,7 @@ func demonstrateIntelligentDetection oInterface {
         cType = oInterface.detectRequestType(cRequest)
         cIntent = oInterface.analyzeUserIntent(cRequest)
         
-        see i + ". الطلب: " + cRequest + nl
+        see "" +i + ". الطلب: " + cRequest + nl
         see "   النوع المكتشف: " + cType + nl
         see "   النية المحللة: " + cIntent + nl + nl
     }
@@ -147,7 +147,7 @@ func demonstrateIntelligentDetection oInterface {
 
 func interactiveDemo oInterface {
     see "🎮 العرض التفاعلي" + nl
-    see "-" * 15 + nl
+    see copy("-", 15) + nl
     see "الآن يمكنك تجربة النظام بنفسك!" + nl
     see "اكتب طلبك (أو 'خروج' للإنهاء):" + nl + nl
     
@@ -190,13 +190,13 @@ func interactiveDemo oInterface {
         # حفظ في المعرفة
         oInterface.oKnowledgeStorage.storeKnowledge("user_request", cUserRequest, 0.6)
         
-        see nl + "=" * 50 + nl
+        see nl + copy("=", 50) + nl
     }
 }
 
 func displaySystemStats oInterface {
     see "📊 إحصائيات النظام النهائية" + nl
-    see "=" * 35 + nl
+    see copy("=", 30) + nl
     
     oStatus = oInterface.getSystemStatus()
     

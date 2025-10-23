@@ -238,4 +238,19 @@ class MorgenSpace {
         
         self.nGlobalResonance = nTotalResonance / len(self.aSymbols)
     }
+    /*
+    Function: getSymbolById
+    Description: Gets a symbol by its ID
+    Inputs:
+        cId : (string) Symbol ID
+    Outputs: (oMorgenSymbol) The symbol or null if not found
+    */
+    func getSymbolById cId {
+        for oSymbol in self.aSymbols {
+            if isObject(oSymbol) and oSymbol.cId = cId {
+                return oSymbol
+            }
+        }
+        return null
+    }
 }   

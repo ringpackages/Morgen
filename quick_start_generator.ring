@@ -5,7 +5,7 @@
 
 load "morgen/intelligent_interface.ring"
 
-func main {
+func display {
     # عرض الشعار
     displayLogo()
     
@@ -65,7 +65,7 @@ func processChoice cChoice {
         return
     else
         see "❌ اختيار غير صحيح. يرجى المحاولة مرة أخرى." + nl
-        main()
+        display()
     }
 }
 
@@ -113,7 +113,7 @@ func generateSampleText {
     
     see nl + "اضغط Enter للعودة للقائمة الرئيسية..."
     give cDummy
-    main()
+    display()
 }
 
 func generateSampleCode {
@@ -164,7 +164,7 @@ func generateSampleCode {
     
     see nl + "اضغط Enter للعودة للقائمة الرئيسية..."
     give cDummy
-    main()
+    display()
 }
 
 func runInteractiveMode {
@@ -225,6 +225,6 @@ func showSystemInfo {
     
     see nl + "اضغط Enter للعودة للقائمة الرئيسية..."
     give cDummy
-    main()
+    display()
 }
 

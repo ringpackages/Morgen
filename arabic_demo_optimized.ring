@@ -4,8 +4,8 @@
 # Author: Morgen AI Project
 # ==============================================================================
 
-load "morgen/space.ring"
-load "morgen/language/char_definitions.ring"
+load "morgen/space_optimized.ring"
+//load "morgen/language/char_definitions.ring"
 load "morgen/language/linguistic_engine.ring"
 
 /*
@@ -21,7 +21,7 @@ func runOptimizedArabicDemo {
     
     # Create a smaller Morgen cognitive space
     see "1. Creating optimized Morgen cognitive space..." + nl
-    oSpace = new oMorgenSpace(2)  # Reduced horn depth
+    oSpace = new MorgenSpace(2)  # Reduced horn depth
     
     # Limit maximum symbols
     oSpace.nMaxSymbols = 100
@@ -39,7 +39,7 @@ func runOptimizedArabicDemo {
     
     # Create a lightweight linguistic engine
     see "4. Initializing lightweight linguistic engine..." + nl
-    oEngine = new oLinguisticEngine(oSpace)
+    oEngine = new LinguisticEngine(oSpace)
     
     # Process simple Arabic words
     see nl + "5. Processing Arabic words..." + nl
@@ -116,31 +116,31 @@ func createEssentialArabicCharacters {
     # Create only the most essential Arabic characters
     
     # Alif (ا)
-    oAlif = new oMorgenSymbol("alif", "arabic_letter", [1, 1, 1, 1], 0.9, 0, "ا")
+    oAlif = new MorgenSymbol("alif", "arabic_letter", [1, 1, 1, 1], 0.9, 0, "ا")
     oAlif.bIsSeed = true
     oAlif.nEnergyLevel = 1.0
     add(aEssentialChars, oAlif)
     
     # Ba (ب)
-    oBa = new oMorgenSymbol("ba", "arabic_letter", [2, 1, 2, 1], 0.85, 15, "ب")
+    oBa = new MorgenSymbol("ba", "arabic_letter", [2, 1, 2, 1], 0.85, 15, "ب")
     oBa.bIsSeed = true
     oBa.nEnergyLevel = 0.95
     add(aEssentialChars, oBa)
     
     # Ta (ت)
-    oTa = new oMorgenSymbol("ta", "arabic_letter", [2, 1, 1, 2], 0.82, 30, "ت")
+    oTa = new MorgenSymbol("ta", "arabic_letter", [2, 1, 1, 2], 0.82, 30, "ت")
     oTa.bIsSeed = true
     oTa.nEnergyLevel = 0.9
     add(aEssentialChars, oTa)
     
     # Kaf (ك)
-    oKaf = new oMorgenSymbol("kaf", "arabic_letter", [1, 2, 1, 2], 0.7, 120, "ك")
+    oKaf = new MorgenSymbol("kaf", "arabic_letter", [1, 2, 1, 2], 0.7, 120, "ك")
     oKaf.bIsSeed = true
     oKaf.nEnergyLevel = 0.85
     add(aEssentialChars, oKaf)
     
     # Mim (م)
-    oMim = new oMorgenSymbol("mim", "arabic_letter", [1, 2, 2, 1], 0.65, 150, "م")
+    oMim = new MorgenSymbol("mim", "arabic_letter", [1, 2, 2, 1], 0.65, 150, "م")
     oMim.bIsSeed = true
     oMim.nEnergyLevel = 0.9
     add(aEssentialChars, oMim)

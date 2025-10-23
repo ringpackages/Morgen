@@ -24,7 +24,9 @@ class MorgenSymbol {
     bIsSeed         # Boolean indicating if this is a seed symbol (basic building block)
     nCondensationValue # Value representing how "condensed" this symbol is (Ramanujan-inspired)
     nFractalDepth   # How many levels of fractal complexity this symbol contains
-
+    cCodeType       # نوع الكود
+    cTargetLanguage # لغة البرمجة المستهدفة
+    nComplexityLevel # مستوى التعقيد
     /*
     Function: init
     Description: Constructor for MorgenSymbol object
