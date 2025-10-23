@@ -53,6 +53,11 @@ class MorgenSymbol {
         self.bIsSeed = false  # Default to false, can be set explicitly for seed symbols
         self.nCondensationValue = 0.0  # Default to no condensation
         self.nFractalDepth = len(aGenome_) / 2  # Simple initial fractal depth estimation
+
+        # خصائص إضافية للكود
+        self.cCodeType = ""  # نوع الكود
+        self.cTargetLanguage = ""  # لغة البرمجة المستهدفة
+        self.nComplexityLevel = 0.0  # مستوى التعقيد
     }
 
     /*
