@@ -4,7 +4,7 @@
 # Author: Morgen AI Project
 # ==============================================================================
 
-load "space.ring"
+//load "space.ring"
 load "language/linguistic_engine.ring"
 load "insight_engine.ring"
 load "adaptive_learning.ring"

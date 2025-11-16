@@ -5,43 +5,13 @@
 # ==============================================================================
 load "stdLib.ring"
 
+cCode = ""
 /*
 Function: main
 Description: Main function for the test suite runner
 */
 if isMainSourceFile() {
-    while true {
-        nChoice = displayTestMenu()
-
-        switch nChoice {
-            case 1
-                runTestSuite("Basic Functionality Tests", "test_basic_functionality.ring")
-            case 2
-                runTestSuite("Enhanced Dream Cycle Tests", "test_enhanced_dream_cycle.ring")
-            case 3
-                runTestSuite("Arabic Language Processing Tests", "test_arabic_language.ring")
-            case 4
-                runTestSuite("Geometric Structures Tests", "test_geometric_structures.ring")
-            case 5
-                runTestSuite("Advanced Features Tests (Phase 1)", "test_advanced_features.ring")
-            case 6
-                runTestSuite("Linguistic Engine Tests", "test_linguistic_engine.ring")
-            case 7
-                runTestSuite("Phase 2 Advanced Systems Tests", "test_phase2_systems.ring")
-            case 8
-                runAllTests()
-            case 9
-                runQuickDemo()
-            case 0
-                see nl + "Exiting test suite. Goodbye!" + nl
-                return
-            default
-                see "Invalid choice. Please enter a number between 0 and 9." + nl
-        }
-
-        see nl + "Press Enter to continue..."
-        give cDummy
-    }
+    runAllTests()
 }
 
 /*

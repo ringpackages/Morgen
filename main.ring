@@ -17,7 +17,7 @@ func main {
     see "==================================================" + nl
     
     # Initialize the Morgen cognitive space
-    oMorgenSpace = new oMorgenSpace(5)  # Horn depth of 5
+    oMorgenSpace = new MorgenSpace(5)  # Horn depth of 5
     
     # Create initial symbols
     see "Creating initial symbols with geomancy-inspired genomes..." + nl
@@ -26,14 +26,14 @@ func main {
     see "Creating deeper symbols (closer to Center 0)..." + nl
     
     # Create some initial symbols with different types and positions
-    oAlpha = new oMorgenSymbol("alpha", "concept", [1, 2, 1, 2], 0.9, 45, null)
-    oBeta = new oMorgenSymbol("beta", "experience", [2, 1, 2, 1], 0.8, 120, null)
-    oGamma = new oMorgenSymbol("gamma", "feeling", [1, 1, 2, 2], 0.85, 270, "Additional data for gamma")
-    oDelta = new oMorgenSymbol("delta", "pattern", [2, 2, 1, 1], 0.7, 15, null)
+    oAlpha = new MorgenSymbol("alpha", "concept", [1, 2, 1, 2], 0.9, 45, null)
+    oBeta = new MorgenSymbol("beta", "experience", [2, 1, 2, 1], 0.8, 120, null)
+    oGamma = new MorgenSymbol("gamma", "feeling", [1, 1, 2, 2], 0.85, 270, "Additional data for gamma")
+    oDelta = new MorgenSymbol("delta", "pattern", [2, 2, 1, 1], 0.7, 15, null)
     
     # Create deeper symbols (closer to Center 0)
-    oEpsilon = new oMorgenSymbol("epsilon", "insight", [1, 2, 2, 1, 1, 2], 0.4, 200, null)
-    oZeta = new oMorgenSymbol("zeta", "principle", [2, 1, 1, 2, 2, 1], 0.3, 320, null)
+    oEpsilon = new MorgenSymbol("epsilon", "insight", [1, 2, 2, 1, 1, 2], 0.4, 200, null)
+    oZeta = new MorgenSymbol("zeta", "principle", [2, 1, 1, 2, 2, 1], 0.3, 320, null)
     
     # Add symbols to the Morgen space
     see "Adding symbols to the Morgen cognitive space..." + nl

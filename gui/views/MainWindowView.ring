@@ -197,7 +197,7 @@ class MainWindowView from WindowsViewParent
                 drawText(-100, -10, "فضاء مورجن - جاهز للمعالجة")
                 drawText(-80, 10, "Morgen Space - Ready")
 
-                end()
+                endpaint()
             }
 
             setPixMap(oVisualizationPixmap)

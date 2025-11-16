@@ -3,6 +3,7 @@
 # واجهة مرجان الذكية للتفاعل مع النظام
 # ==============================================================================
 
+// تحميل المكتبات
 load "space.ring"
 load "advanced_knowledge_storage.ring"
 load "advanced_text_generator.ring"
